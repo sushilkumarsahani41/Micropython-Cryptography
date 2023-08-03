@@ -53,13 +53,38 @@ Ensure you have the following prerequisites installed:
 
 1. Clone this repository to your local machine:
 
+- git clone https://github.com/sushilkumarsahani41/Micropython-Cryptography.git
 
+2. Copy the crypt.py to IoT Device Such as ESP32 or any Micropython Device
 
-
-
+- Here Your Installtion is Done 
 
 
 ## 🎈 Usage <a name="usage"></a>
 
-Add notes about how to use the system.
+```python
+from crypt import crypt
+
+#to Generate Key
+import uos 
+key = uos.urandom(16) # it will generate an 128 bits AES Key
+
+# or You Can Manually Add it
+key = b'1234567890123456'
+
+#  init crypt lib
+c = crypt(key)
+
+# To Encrypt Plain Text
+plain_text = "Hello World"
+encrypted_text = c.encrypt(plain_text)
+
+# To Decrypt Encrypted text 
+decrypted_text = c.decrypt(encrypted_text) # For Decryption text must be in a form of bytes 
+
+```
+# Thank You 
+
+# Happy Coding
+
 
